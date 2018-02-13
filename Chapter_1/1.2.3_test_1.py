@@ -64,4 +64,12 @@ print(moh_3)
 # for Bin   => 0b
 # for base 10 just type it
 
+# moh_4 is a float
+moh_4 = 3.4343e20
+# print type of moh_4
+print("type of moh_4 = ", end='')
+print(type(moh_4))
+# print value of moh_4
+print("value of moh_4 =", end='')
+print(moh_4)
 
