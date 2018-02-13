@@ -73,3 +73,26 @@ print(type(moh_4))
 print("value of moh_4 =", end='')
 print(moh_4)
 
+######
+# list
+# list is array base
+
+# list_1 is a list
+list_1 = list()
+# print type of list_1
+print("type of list_1 = ", end='')
+print(type(list_1))
+# print value of list_1
+print("value of list_1 =", end='')
+print(list_1, end='\n\n')
+
+# list_2 is a list
+list_2 = ['red', 54, 3.43e23]
+# print type of list_2
+print("type of list_2 = ", end='')
+print(type(list_2))
+# print value of list_2
+print("value of list_2 =", end='')
+print(list_2, end='\n\n')
+
+
