@@ -69,3 +69,36 @@ print_type_value(tuple_1, "tuple_1")
 # tuple_2 is a tuple
 tuple_2 = (3,)
 print_type_value(tuple_2, "tuple_2")
+
+######
+# srt
+# srt is immutable sequence of char
+# str_1 is a str
+str_1 = "hello"
+print_type_value(str_1, "str_1")
+
+# str_2 is a str
+str_2 = "don\'t worry!"
+
+# str_3 is a str
+str_3 = """hello 
+this is a str
+ohh yeehhh!!"""
+print_type_value(str_3, "str_3")
+
+#####
+# set
+# set => ?
+
+#####
+# frozenset
+# frozenset => ?
+
+#####
+# dict
+# dict is dictionary
+
+# dict_1 is a dict
+dict_1 = {'fa': 'farsi', 'de': 'germany'}
+print_type_value(dict_1, "dict_1")
+
