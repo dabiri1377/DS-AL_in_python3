@@ -37,6 +37,30 @@ print(bool_t or bool_f, end='\n\n')
 print("bool_t or bool_t = ", end='')
 print(bool_t or bool_t, end='\n\n')
 
+####
+# Equality Operation
+bool_t = True
+bool_f = False
+int_1 = int(1)
+int_0 = int(0)
+
+# is
+print("bool_t \'is\' bool_t? ", end='')
+print(bool_t is bool_t, end='\n\n')
+
+print("bool_t \'is\' int_1 ? ", end='')
+print(bool_t is int_1, end='\n\n')
+
+# is not => not is
+
+# ==
+print("bool_t \'==\' bool_t ? ", end='')
+print(bool_t == bool_t, end='\n\n')
+
+print("bool_t \'==\' int_1 ? ", end='')
+print(bool_t == int_1, end='\n\n')
+
+# != => not ==
 
 
 
