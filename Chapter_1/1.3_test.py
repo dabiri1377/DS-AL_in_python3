@@ -62,5 +62,19 @@ print(bool_t == int_1, end='\n\n')
 
 # != => not ==
 
+####
+# Comparison Operation
+# < less than
+# > larger than
+# <= less then or equal to
+# >= larger than or equal to
 
 
+####
+# Arithmetic Operation
+# + add
+# - subtraction
+# * multiplication
+# / true division
+# // int division(9//2 == 4)
+# % mod (9%2 == 1)
