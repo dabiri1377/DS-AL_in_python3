@@ -121,3 +121,7 @@ print("check if 'z' in s : ", end='')
 print('z' in s, end='\n\n')  # print => False
 
 # val 'not in' s => not val 'in' s
+
+####
+# Operation for set and Dict
+
