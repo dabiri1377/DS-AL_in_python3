@@ -157,3 +157,8 @@ dict_1 = {'1': "one", '2': 'two', '3': 'three', '4': 'four'}
 # key 'not in' d =>
 # d1 == d2 =>
 # d1 != d2 =>
+
+
+# TODO: add extended assignment Operation
+# TODO: add Compound Expressions and Operator Precedence
+
