@@ -124,4 +124,36 @@ print('z' in s, end='\n\n')  # print => False
 
 ####
 # Operation for set and Dict
+set_1 = (2, 4, 6, 8, 10, 12)
+set_2 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+set_3 = (2, 4, 8, 16)
+set_4 = (2, 4, 8, 16)
+dict_1 = {'1': "one", '2': 'two', '3': 'three', '4': 'four'}
 
+##
+# for set and frozenset's
+# TODO: add some example for this
+# key 'in' s     => containment check
+# key 'not in' s => non-containment check
+# s1 == s2  => s1 is equivalent to s2
+# s1 != s2  => s1 is not equivalent to s2
+# s1 <= s2  => s1 is subset of s2
+# s1 < s2   => s1 is proper subset of s2
+# s1 >= s2  => s1 is superset of s2
+# s1 > s2   => s1 is proper superset of s2
+# s1 | s2   => the union of s1 and s2
+# s1 & s2   => the intersection of s1 and s2
+# s1 - s2   => the set of element in s1 but not in s2
+# s1 ^ s2   => the set of elements in precisely one of s1 or s2
+
+
+##
+# for dict's
+# TODO: add some example for this
+# d[key] =>
+# d[key] = value =>
+# del d[key] =>
+# key 'in' d =>
+# key 'not in' d =>
+# d1 == d2 =>
+# d1 != d2 =>
