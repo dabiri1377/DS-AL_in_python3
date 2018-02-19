@@ -1,5 +1,5 @@
 try:
     r = 0 / 3
 
-except:
-    print("you fucked up, this is a shit, you most revire hole code")
+except :
+    print("You really fucked this up! This is shit. You most review whole code")
