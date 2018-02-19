@@ -49,3 +49,14 @@ for k in range(len(data)):
     if data[k] > data[big_index]:
         big_index = k
 print("biggest index of 'data' is:", data[big_index])
+
+# Break
+# a break statement immediately terminate a while or for loop \
+# when executed within its body.
+list_1 = [10, 20, 30, 40, 50, 60, 70, 80]
+for counter_of_list_1 in list_1:
+    if counter_of_list_1 > 40:
+        print("there is number larger than 40 in list")
+        break
+
+# Continue
