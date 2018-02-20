@@ -48,26 +48,28 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
         # and put it into random_list
         random_list.append(random.randint(min_value, max_value))
 
-    # for_debug
-    print(len(random_list))
-    print(random_list)
-
     # sort for show time Lo to Hi
     random_list.sort()
 
+    print("test")
     r = None
     iterable_2 = random_list
-
+    # TODO: optimize this
     pool = tuple(iterable_2)
     n = len(pool)
     r = n if r is None else r
     for indices in itertools.product(range(n), repeat=r):
+        print("test3")
         if len(set(indices)) == r:
-            permutations_one_by_one = tuple(pool[i] for i in indices)
-            # for_debug
-            print("tuple =:", permutations_one_by_one)
+            print("test4")
+            permutations_one_by_one = list(pool[i] for i in indices)
+            copy_of = permutations_one_by_one.copy()
             # call Insertion sort
-
+            time_spend = time_calculator_for_insertion_sort(permutations_one_by_one)
+            if time_spend != 0:
+                # for_debug
+                print("tuple =:", copy_of)
+                print("time spend", time_spend)
     pass
 
 
@@ -82,4 +84,4 @@ def random_list_analyzer(len_of_list):
 # print(time_calculator_for_insertion_sort(test_list))
 
 
-random_repeated_list_analyzer(5, 10, 50)
+random_repeated_list_analyzer(10, 10, 50)
