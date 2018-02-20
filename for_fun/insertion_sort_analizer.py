@@ -71,9 +71,6 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
 
     row_number_in_excel += 1
 
-    # for_debug
-    print("first time_spend = ", time_spend_for_smallest)
-
     # I don't know how this work. but work good
     while n:
         for i in reversed(range(n)):
@@ -94,8 +91,6 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
                 sheet1.write(row_number_in_excel, 1, time_spend)
 
                 row_number_in_excel += 1
-                # for_debug
-                print("time_spend = ", time_spend)
 
                 break
         else:
