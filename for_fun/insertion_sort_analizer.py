@@ -50,8 +50,24 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
 
     # for_debug
     print(len(random_list))
+    print(random_list)
 
-    # itertools.permutations()
+    # sort for show time Lo to Hi
+    random_list.sort()
+
+    r = None
+    iterable_2 = random_list
+
+    pool = tuple(iterable_2)
+    n = len(pool)
+    r = n if r is None else r
+    for indices in itertools.product(range(n), repeat=r):
+        if len(set(indices)) == r:
+            permutations_one_by_one = tuple(pool[i] for i in indices)
+            # for_debug
+            print("tuple =:", permutations_one_by_one)
+            # call Insertion sort
+
     pass
 
 
@@ -66,4 +82,4 @@ def random_list_analyzer(len_of_list):
 # print(time_calculator_for_insertion_sort(test_list))
 
 
-random_repeated_list_analyzer()
+random_repeated_list_analyzer(5, 10, 50)
