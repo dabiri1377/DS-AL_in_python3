@@ -1,3 +1,4 @@
+import math
 import time
 import random
 
@@ -37,11 +38,12 @@ def time_calculator_for_insertion_sort(input_list_for_insertion_sort):
     return last_millis - first_millis
 
 
-def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
+def random_repeated_list_analyzer(len_of_list, min_value, max_value):
     # Generate a empty list for fill with random number \
     # between min_value to max_value
     random_list = []
 
+    total_time = 0
     # Create len_of_list value and put them into random_list
     for i in range(len_of_list):
         # Generate a random number between min_value and max_value \
@@ -53,12 +55,14 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
 
     pool = tuple(random_list)
     n = len(pool)
+
     indices = list(range(n))
     cycles = list(range(n, 0, -1))
 
     # time_spend_for_smallest is usually 0
-    temp_list_1 = list(pool[i] for i in indices[:n])
-    time_spend_for_smallest = time_calculator_for_insertion_sort(temp_list_1)
+    min_time = time_calculator_for_insertion_sort(list(pool[i] for i in indices[:n]))
+    total_time += min_time
+    max_time = 0
 
     # I don't know how this work. but work good
     while n:
@@ -73,15 +77,21 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
                 indices[i], indices[-j] = indices[-j], indices[i]
 
                 # usually time_spend = 0
-                temp_list_2 = list(pool[i] for i in indices[:n])
-                time_spend = time_calculator_for_insertion_sort(temp_list_2)
-
+                temp_time = time_calculator_for_insertion_sort(list(pool[i] for i in indices[:n]))
+                if temp_time > max_time:
+                    max_time = temp_time
+                total_time += temp_time
                 break
         else:
             break
-
+    average_time = total_time / math.factorial(n)
     print("final test")
-    pass
+
+    return_tuple = tuple()
+    return_tuple = ("min_time=" + str(min_time), "average_time=" + str(average_time),
+                    "max_time=" + str(max_time))
+
+    return return_tuple
 
 
 def random_list_analyzer(len_of_list):
@@ -95,4 +105,4 @@ def random_list_analyzer(len_of_list):
 # print(time_calculator_for_insertion_sort(test_list))
 
 
-random_repeated_list_analyzer(10, 1, 500, "test5")
+print(random_repeated_list_analyzer(10, 1, 500))
