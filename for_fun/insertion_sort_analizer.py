@@ -1,3 +1,4 @@
+import xlwt
 import time
 import itertools
 import random
@@ -51,16 +52,15 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
     # sort for show time Lo to Hi
     random_list.sort()
 
+
+    """    
     print("test")
-    r = None
-    iterable_2 = random_list
     # TODO: optimize this
-    pool = tuple(iterable_2)
+    pool = tuple(random_list)
     n = len(pool)
-    r = n if r is None else r
-    for indices in itertools.product(range(n), repeat=r):
+    for indices in itertools.product(range(n), repeat=n):
         print("test3")
-        if len(set(indices)) == r:
+        if len(set(indices)) == n:
             print("test4")
             permutations_one_by_one = list(pool[i] for i in indices)
             copy_of = permutations_one_by_one.copy()
@@ -70,6 +70,33 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
                 # for_debug
                 print("tuple =:", copy_of)
                 print("time spend", time_spend)
+
+"""
+
+    pool = tuple(random_list)
+    n = len(pool)
+    indices = list(range(n))
+    cycles = list(range(n, 0, -1))
+    # TODO: add time_calculator_for_insertion_sort
+    print(tuple(pool[i] for i in indices[:n]))
+
+    while n:
+        for i in reversed(range(n)):
+            cycles[i] -= 1
+            if cycles[i] == 0:
+                indices[i:] = indices[i + 1:] + indices[i:i + 1]
+                cycles[i] = n - i
+            else:
+                j = cycles[i]
+                indices[i], indices[-j] = indices[-j], indices[i]
+                # TODO: add time_calculator_for_insertion_sort
+                print(tuple(pool[i] for i in indices[:n]))
+
+                break
+        else:
+            break
+
+    print("final test")
     pass
 
 
@@ -84,4 +111,4 @@ def random_list_analyzer(len_of_list):
 # print(time_calculator_for_insertion_sort(test_list))
 
 
-random_repeated_list_analyzer(10, 10, 50)
+random_repeated_list_analyzer(4, 10, 50)
