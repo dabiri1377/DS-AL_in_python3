@@ -1,3 +1,5 @@
+import time
+
 def insertion_sort(input_list):
     """
     Insertion sort algorithm.
@@ -24,8 +26,13 @@ def random_list_generator(len_of_list):
     pass
 
 
-def time_calculator():
-    pass
+def time_calculator_for_insertion_sort(input_list_for_insertion_sort):
+
+    first_millis = int(round(time.time() * 1000))
+    insertion_sort(input_list_for_insertion_sort)
+    last_millis = int(round(time.time() * 1000))
+    time_pass = last_millis - first_millis
+    return time_pass
 
 
 def all_list_analyzer(len_of_list):
