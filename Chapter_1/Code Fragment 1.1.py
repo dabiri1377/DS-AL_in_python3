@@ -9,7 +9,7 @@ total_points = 0
 done = False
 while not done:
     grade = input()  # read line from user
-    if grade == '' :  # empty line was entered
+    if grade == '':  # empty line was entered
         done = True
     elif grade not in points:  # unrecognized grade entered
         print("Unknown grade {0} being ignored".format(grade))
