@@ -4,6 +4,7 @@ import itertools
 import random
 
 
+# done
 def insertion_sort(input_list):
     """
     Insertion sort algorithm.
@@ -52,34 +53,18 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
     # sort for show time Lo to Hi
     random_list.sort()
 
-
-    """    
-    print("test")
-    # TODO: optimize this
-    pool = tuple(random_list)
-    n = len(pool)
-    for indices in itertools.product(range(n), repeat=n):
-        print("test3")
-        if len(set(indices)) == n:
-            print("test4")
-            permutations_one_by_one = list(pool[i] for i in indices)
-            copy_of = permutations_one_by_one.copy()
-            # call Insertion sort
-            time_spend = time_calculator_for_insertion_sort(permutations_one_by_one)
-            if time_spend != 0:
-                # for_debug
-                print("tuple =:", copy_of)
-                print("time spend", time_spend)
-
-"""
-
     pool = tuple(random_list)
     n = len(pool)
     indices = list(range(n))
     cycles = list(range(n, 0, -1))
-    # TODO: add time_calculator_for_insertion_sort
-    print(tuple(pool[i] for i in indices[:n]))
 
+    # time_spend_for_smallest is usually 0
+    time_spend_for_smallest = time_calculator_for_insertion_sort(list(pool[i] for i in indices[:n]))
+
+    # for_debug
+    print("first time_spend = ", time_spend_for_smallest)
+
+    # I don't know how this work. but work good
     while n:
         for i in reversed(range(n)):
             cycles[i] -= 1
@@ -87,10 +72,15 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
                 indices[i:] = indices[i + 1:] + indices[i:i + 1]
                 cycles[i] = n - i
             else:
+                # I don't have any fucking idea how this work
                 j = cycles[i]
                 indices[i], indices[-j] = indices[-j], indices[i]
-                # TODO: add time_calculator_for_insertion_sort
-                print(tuple(pool[i] for i in indices[:n]))
+
+                # usually time_spend = 0
+                time_spend = time_calculator_for_insertion_sort(list(pool[i] for i in indices[:n]))
+
+                # for_debug
+                print("time_spend = ", time_spend)
 
                 break
         else:
