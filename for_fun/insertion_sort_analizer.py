@@ -1,6 +1,4 @@
-import xlwt
 import time
-import itertools
 import random
 
 
