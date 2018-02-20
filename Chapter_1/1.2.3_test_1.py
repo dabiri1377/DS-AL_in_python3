@@ -20,7 +20,7 @@ ali_2 = True
 print_type_value(ali_2, "ali_2")
 
 # ali_3 is ID for string
-ali_3 = "sdfsadf"
+ali_3 = "this is a random thing"
 print_type_value(ali_3, "ali_3")
 
 # moh is an int
@@ -83,7 +83,7 @@ str_2 = "don\'t worry!"
 # str_3 is a str
 str_3 = """hello 
 this is a str
-ohh yeehhh!!"""
+ohh yeah!!"""
 print_type_value(str_3, "str_3")
 
 #####
