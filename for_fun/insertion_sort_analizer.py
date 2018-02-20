@@ -47,6 +47,20 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
     # between min_value to max_value
     random_list = []
 
+    row_number_in_excel = 0
+
+    # put importent data in begning of excel
+    sheet1.write(row_number_in_excel, 0, str("list_properties:"))
+    sheet1.write(row_number_in_excel, 1, str("len of list = " + str(len_of_list)))
+    sheet1.write(row_number_in_excel, 2, str("min value = " + str(min_value)))
+    sheet1.write(row_number_in_excel, 3, str("max value = " + str(max_value)))
+    row_number_in_excel += 1
+
+    sheet1.write(row_number_in_excel, 0, str("data"))
+    sheet1.write(row_number_in_excel, 1, str("time im millis"))
+    row_number_in_excel += 1
+
+
     # Create len_of_list value and put them into random_list
     for i in range(len_of_list):
         # Generate a random number between min_value and max_value \
@@ -60,13 +74,13 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
     n = len(pool)
     indices = list(range(n))
     cycles = list(range(n, 0, -1))
-    row_number_in_excel = 0
 
     # time_spend_for_smallest is usually 0
     temp_list_1 = list(pool[i] for i in indices[:n])
+    temp_list_1_1 = temp_list_1.copy()
     time_spend_for_smallest = time_calculator_for_insertion_sort(temp_list_1)
 
-    sheet1.write(row_number_in_excel, 0, str(temp_list_1))
+    sheet1.write(row_number_in_excel, 0, str(temp_list_1_1))
     sheet1.write(row_number_in_excel, 1, time_spend_for_smallest)
 
     row_number_in_excel += 1
@@ -85,9 +99,10 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
 
                 # usually time_spend = 0
                 temp_list_2 = list(pool[i] for i in indices[:n])
+                temp_list_3 = temp_list_2.copy()
                 time_spend = time_calculator_for_insertion_sort(temp_list_2)
 
-                sheet1.write(row_number_in_excel, 0, str(temp_list_2))
+                sheet1.write(row_number_in_excel, 0, str(temp_list_3))
                 sheet1.write(row_number_in_excel, 1, time_spend)
 
                 row_number_in_excel += 1
@@ -112,4 +127,4 @@ def random_list_analyzer(len_of_list):
 # print(time_calculator_for_insertion_sort(test_list))
 
 
-random_repeated_list_analyzer(4, 10, 50, "test2")
+random_repeated_list_analyzer(10, 1, 500, "test5")
