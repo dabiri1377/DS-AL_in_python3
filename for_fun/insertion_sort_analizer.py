@@ -40,26 +40,9 @@ def time_calculator_for_insertion_sort(input_list_for_insertion_sort):
 
 
 def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
-    book = xlwt.Workbook(encoding="utf-8")
-    sheet1 = book.add_sheet("sheet 1")
-
     # Generate a empty list for fill with random number \
     # between min_value to max_value
     random_list = []
-
-    row_number_in_excel = 0
-
-    # put importent data in begning of excel
-    sheet1.write(row_number_in_excel, 0, str("list_properties:"))
-    sheet1.write(row_number_in_excel, 1, str("len of list = " + str(len_of_list)))
-    sheet1.write(row_number_in_excel, 2, str("min value = " + str(min_value)))
-    sheet1.write(row_number_in_excel, 3, str("max value = " + str(max_value)))
-    row_number_in_excel += 1
-
-    sheet1.write(row_number_in_excel, 0, str("data"))
-    sheet1.write(row_number_in_excel, 1, str("time im millis"))
-    row_number_in_excel += 1
-
 
     # Create len_of_list value and put them into random_list
     for i in range(len_of_list):
@@ -77,13 +60,7 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
 
     # time_spend_for_smallest is usually 0
     temp_list_1 = list(pool[i] for i in indices[:n])
-    temp_list_1_1 = temp_list_1.copy()
     time_spend_for_smallest = time_calculator_for_insertion_sort(temp_list_1)
-
-    sheet1.write(row_number_in_excel, 0, str(temp_list_1_1))
-    sheet1.write(row_number_in_excel, 1, time_spend_for_smallest)
-
-    row_number_in_excel += 1
 
     # I don't know how this work. but work good
     while n:
@@ -99,19 +76,12 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
 
                 # usually time_spend = 0
                 temp_list_2 = list(pool[i] for i in indices[:n])
-                temp_list_3 = temp_list_2.copy()
                 time_spend = time_calculator_for_insertion_sort(temp_list_2)
-
-                sheet1.write(row_number_in_excel, 0, str(temp_list_3))
-                sheet1.write(row_number_in_excel, 1, time_spend)
-
-                row_number_in_excel += 1
 
                 break
         else:
             break
 
-    book.save(str(file_name) + ".xls")
     print("final test")
     pass
 
