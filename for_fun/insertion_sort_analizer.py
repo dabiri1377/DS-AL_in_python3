@@ -39,7 +39,10 @@ def time_calculator_for_insertion_sort(input_list_for_insertion_sort):
     return last_millis - first_millis
 
 
-def random_repeated_list_analyzer(len_of_list, min_value, max_value):
+def random_repeated_list_analyzer(len_of_list, min_value, max_value, file_name):
+    book = xlwt.Workbook(encoding="utf-8")
+    sheet1 = book.add_sheet("sheet 1")
+
     # Generate a empty list for fill with random number \
     # between min_value to max_value
     random_list = []
@@ -57,9 +60,16 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
     n = len(pool)
     indices = list(range(n))
     cycles = list(range(n, 0, -1))
+    row_number_in_excel = 0
 
     # time_spend_for_smallest is usually 0
-    time_spend_for_smallest = time_calculator_for_insertion_sort(list(pool[i] for i in indices[:n]))
+    temp_list_1 = list(pool[i] for i in indices[:n])
+    time_spend_for_smallest = time_calculator_for_insertion_sort(temp_list_1)
+
+    sheet1.write(row_number_in_excel, 0, str(temp_list_1))
+    sheet1.write(row_number_in_excel, 1, time_spend_for_smallest)
+
+    row_number_in_excel += 1
 
     # for_debug
     print("first time_spend = ", time_spend_for_smallest)
@@ -77,8 +87,13 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
                 indices[i], indices[-j] = indices[-j], indices[i]
 
                 # usually time_spend = 0
-                time_spend = time_calculator_for_insertion_sort(list(pool[i] for i in indices[:n]))
+                temp_list_2 = list(pool[i] for i in indices[:n])
+                time_spend = time_calculator_for_insertion_sort(temp_list_2)
 
+                sheet1.write(row_number_in_excel, 0, str(temp_list_2))
+                sheet1.write(row_number_in_excel, 1, time_spend)
+
+                row_number_in_excel += 1
                 # for_debug
                 print("time_spend = ", time_spend)
 
@@ -86,6 +101,7 @@ def random_repeated_list_analyzer(len_of_list, min_value, max_value):
         else:
             break
 
+    book.save(str(file_name) + ".xls")
     print("final test")
     pass
 
@@ -101,4 +117,4 @@ def random_list_analyzer(len_of_list):
 # print(time_calculator_for_insertion_sort(test_list))
 
 
-random_repeated_list_analyzer(4, 10, 50)
+random_repeated_list_analyzer(4, 10, 50, "test2")
