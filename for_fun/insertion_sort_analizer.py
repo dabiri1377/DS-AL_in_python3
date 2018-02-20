@@ -1,4 +1,6 @@
 import time
+import itertools
+import random
 
 
 def insertion_sort(input_list):
@@ -27,6 +29,7 @@ def random_list_generator(len_of_list):
     pass
 
 
+# done
 def time_calculator_for_insertion_sort(input_list_for_insertion_sort):
     first_millis = int(round(time.time() * 1000))
     insertion_sort(input_list_for_insertion_sort)
@@ -34,7 +37,21 @@ def time_calculator_for_insertion_sort(input_list_for_insertion_sort):
     return last_millis - first_millis
 
 
-def all_list_analyzer(len_of_list):
+def random_repeated_list_analyzer(len_of_list, min_value, max_value):
+    # Generate a empty list for fill with random number \
+    # between min_value to max_value
+    random_list = []
+
+    # Create len_of_list value and put them into random_list
+    for i in range(len_of_list):
+        # Generate a random number between min_value and max_value \
+        # and put it into random_list
+        random_list.append(random.randint(min_value, max_value))
+
+    # for_debug
+    print(len(random_list))
+
+    # itertools.permutations()
     pass
 
 
@@ -44,6 +61,9 @@ def random_list_analyzer(len_of_list):
 
 # __main__
 
-test_list = [x for x in range(5000,0,-1)]
-print(time_calculator_for_insertion_sort(test_list))
+# for test
+# test_list = [x for x in range(5000, 0, -1)]
+# print(time_calculator_for_insertion_sort(test_list))
 
+
+random_repeated_list_analyzer()
